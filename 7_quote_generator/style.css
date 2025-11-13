@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Playfair  Display', serif;
+    font-family: 'Playfair Display', serif;
     box-sizing: border-box;
     line-height: 1.5;
 }
@@ -12,7 +12,7 @@ body {
     background: #bbc6fa;
 }
 
-.quote-box {
+.kanye-box {
     background: #fff;
     width: 700px;
     position: absolute;
@@ -22,16 +22,16 @@ body {
     padding: 40px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
-.quote-box h2 {
+.kanye-box h2 {
     font-size: 32px;
     margin-bottom: 40px;
     position: relative;
 }
 
-.quote-box h2::after {
+.kanye-box h2::after {
     content: '';
     width: 75px;
     height: 3px;
@@ -43,23 +43,24 @@ body {
     transform: translate(-50%);
 }
 
-.quote-box blockquote {
+.kanye-box blockquote#kanye-quote {
     font-size: 20px;
     min-height: 110px;
 }
 
-.quote-box blockquote::before, .quote-box blockquote::after {
+.kanye-box blockquote#kanye-quote::before,
+.kanye-box blockquote#kanye-quote::after {
     content: '"';
 }
 
-.quote-box span {
+.kanye-box span#kanye-author {
     display: block;
     margin-top: 10px;
     float: right;
     position: relative;
 }
 
-.quote-box span::before {
+.kanye-box span#kanye-author::before {
     content: '';
     width: 20px;
     height: 2px;
@@ -69,14 +70,14 @@ body {
     left: -30px;
 }
 
-.quote-box div {
+.kanye-box div {
     width: 100%;
     margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
-.quote-box button {
+.kanye-box button {
     background: rgb(23, 124, 229);
     color: #fff;
     border-radius: 25px;
@@ -90,12 +91,12 @@ body {
     cursor: pointer;
 }
 
-.quote-box button img {
+.kanye-box button img {
     width: 20px;
     margin-right: 10px;
 }
 
-.quote-box button:nth-child(2) {
+.kanye-box button:nth-child(2) {
     background: transparent;
     color: #333;
 }
