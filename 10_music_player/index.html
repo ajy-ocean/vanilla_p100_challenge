@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="fa fa-mail-reply"></i>
+                </div>
+                <div class="circle">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </nav>
+            <img src="./media/blond.png" alt="blond album cover" class="song-img">
+            <h1>Nights</h1>
+            <p>Frank Ocean</p>
+            <audio id="song">
+                <source src="./media/nights.mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" name="" id="progress">
+            <div class="controls">
+                <div>
+                    <i class="fa fa-toggle-left"></i>
+                </div>
+                <div onclick="playPause()">
+                    <i id="control-icon" class="fa fa-play"></i>
+                    <!-- <i class="fa fa-pause"></i> -->
+                </div>
+                <div>
+                    <i class="fa fa-toggle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
