@@ -1,30 +1,24 @@
-// js/script.js
+// js/script.js (your showcase site—already good, but confirming master usage)
 const REPO_USER = "ajy-ocean";
 const REPO_NAME = "vanilla_p100_challenge";
-const API_URL = `https://api.github.com/repos/${REPO_USER}/${REPO_NAME}/contents`;
+const API_URL = `https://api.github.com/repos/${REPO_USER}/${REPO_NAME}/contents`; // Auto-uses default (master)
 
 const searchInput = document.getElementById("search");
 const projectsContainer = document.getElementById("projects");
 
-// Placeholder: Map folder to CodePen URL later (e.g., after you create them)
-// For now, uses a blank editor. Update this object with { '1_weather-app': 'https://codepen.io/your-pen-id/full' }
-const CODEPEN_MAP = {}; // Example: { '1_weather-app': 'https://codepen.io/ajy-ocean/pen/abc123?editors=1100' }
+// Your CODEPEN_MAP here (add as you create Pens)
+const CODEPEN_MAP = {}; // e.g., {'1_weather-app': 'https://codepen.io/ajy-ocean/full/abc123'};
 
 async function fetchProjects() {
     try {
         const response = await fetch(API_URL);
         const data = await response.json();
-
-        // Filter folders only
         const folders = data.filter((item) => item.type === "dir");
-
-        // Sort numerically (e.g., 1, 2, 10...)
         folders.sort((a, b) => {
             const numA = parseInt(a.name.match(/^\d+/)?.[0] || "999");
             const numB = parseInt(b.name.match(/^\d+/)?.[0] || "999");
             return numA - numB;
         });
-
         displayProjects(folders);
     } catch (error) {
         console.error("Error fetching projects:", error);
@@ -35,9 +29,9 @@ async function fetchProjects() {
 
 function humanizeTitle(folderName) {
     return folderName
-        .replace(/^\d+_/, "") // Remove number prefix
-        .replace(/_/g, " ") // Underscores to spaces
-        .replace(/\b\w/g, (l) => l.toUpperCase()); // Capitalize words
+        .replace(/^\d+_/, "")
+        .replace(/_/g, " ")
+        .replace(/\b\w/g, (l) => l.toUpperCase());
 }
 
 function getCodePenUrl(folderName) {
@@ -53,7 +47,7 @@ function displayProjects(folders) {
     projectsContainer.innerHTML = folders
         .map((folder) => {
             const title = humanizeTitle(folder.name);
-            const githubUrl = `https://github.com/${REPO_USER}/${REPO_NAME}/tree/master/${folder.name}`;
+            const githubUrl = `https://github.com/${REPO_USER}/${REPO_NAME}/tree/master/${folder.name}`; // Locked to master
             const codepenUrl = getCodePenUrl(folder.name);
 
             return `
@@ -69,7 +63,6 @@ function displayProjects(folders) {
         })
         .join("");
 
-    // Search functionality
     searchInput.addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase();
         document.querySelectorAll(".card").forEach((card) => {
@@ -79,5 +72,4 @@ function displayProjects(folders) {
     });
 }
 
-// Load on page ready
 fetchProjects();

@@ -14,7 +14,7 @@ body {
 .stopwatch {
     width: 30%;
     max-width: 600px;
-    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(images/background.png);
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/11_stopwatch/images/background.png);
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -43,6 +43,6 @@ body {
     cursor: pointer;
 }
 
-.buttons img:nth-child(2) {
+.buttons img:nth-child(2') {
     width: 80px;
 }

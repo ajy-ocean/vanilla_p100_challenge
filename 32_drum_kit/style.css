@@ -7,7 +7,7 @@
 
 body {
     font-size: 10px;
-    background: url('./images/background.jpg') bottom center;
+    background: url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/32_drum_kit/images/background.jpg') bottom center;
     background-size: cover;
 }
 
