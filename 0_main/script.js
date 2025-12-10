@@ -9,7 +9,15 @@ const projectsContainer = document.getElementById("projects");
 // Placeholder: Map folder to CodePen URL later (e.g., after you create them)
 const CODEPEN_MAP = {
     '1_weather-app': 'https://codepen.io/ajy_ocean/full/ZYWVgYy',
-    '1_weather-app': 'https://codepen.io/ajy_ocean/full/ZYWVgYy',
+    '2_todolist': 'https://codepen.io/ajy_ocean/full/MYyLbKB',
+    '3_quiz': 'https://codepen.io/ajy_ocean/full/LENqbbE',
+    '4_random_password_generator': 'https://codepen.io/ajy_ocean/full/EaKrNmB',
+    '5_notes_app': 'https://codepen.io/ajy_ocean/full/YPqBpxW',
+    '6_age_calculator': 'https://codepen.io/ajy_ocean/full/XJdONaw',
+    '7_quote_generator': 'https://codepen.io/ajy_ocean/full/MYyLbrL',
+    '8_qr_generator': 'https://codepen.io/ajy_ocean/full/emZxBVo',
+    '9_toast_notification': 'https://codepen.io/ajy_ocean/full/pvyGRzm',
+    '10_music_player': 'https://codepen.io/ajy_ocean/full/pvyGRzm',
 }; // Example: { '1_weather-app': 'https://codepen.io/ajy-ocean/full/abc123' }
 
 async function fetchProjects() {
