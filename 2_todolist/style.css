@@ -91,7 +91,7 @@ ul li.checked {
 }
 
 ul li.checked::before {
-    background-image: url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/2_todolist/images/images/checked.png');
+    background-image: url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/2_todolist/images/checked.png');
 }
 
 ul li span {
