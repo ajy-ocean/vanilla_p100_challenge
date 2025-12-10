@@ -42,7 +42,7 @@
 
 </style>
 
-  <button>Click Me</button>
+  <button class="btn-wrap">Click Me</button>
 
 <script>
   const divs = document.querySelectorAll('div');
@@ -59,9 +59,9 @@
   }));
 
   btn.addEventListener('click', 
-  () => console.log('click!!!'), {
-    once: true
-  });
+    () => console.log('click!!!'),
+    { once: true }
+  );
 
 </script>
 </body>

@@ -40,7 +40,7 @@ function takePhoto() {
     snap.currentTime = 0;
     snap.play();
 
-    const data = canvas.toDataURL("./images_audio_videos/ss/jpeg");
+    const data = canvas.toDataURL("https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/50_webcam_fun/images_audio_videos/ss/jpeg");
     const link = document.createElement("a");
     link.href = data;
     link.setAttribute("download", "handsome");
