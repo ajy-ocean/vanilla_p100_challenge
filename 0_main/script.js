@@ -17,7 +17,11 @@ const CODEPEN_MAP = {
     '7_quote_generator': 'https://codepen.io/ajy_ocean/full/MYyLbrL',
     '8_qr_generator': 'https://codepen.io/ajy_ocean/full/emZxBVo',
     '9_toast_notification': 'https://codepen.io/ajy_ocean/full/pvyGRzm',
-    '10_music_player': 'https://codepen.io/ajy_ocean/full/pvyGRzm',
+    '10_music_player': 'https://codepen.io/ajy_ocean/full/EaKrZKy',
+    '11_stopwatch': 'https://codepen.io/ajy_ocean/full/XJdOpjX',
+    '12_calculator': 'https://codepen.io/ajy_ocean/full/jEqdyVj',
+    '13_popup': 'https://codepen.io/ajy_ocean/full/EaKrZmN',
+    '14_hide_show_password': 'https://codepen.io/ajy_ocean/full/EaKrZmN',
 }; // Example: { '1_weather-app': 'https://codepen.io/ajy-ocean/full/abc123' }
 
 async function fetchProjects() {
