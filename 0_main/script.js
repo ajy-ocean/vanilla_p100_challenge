@@ -7,7 +7,9 @@ const searchInput = document.getElementById("search");
 const projectsContainer = document.getElementById("projects");
 
 // Your CODEPEN_MAP here (add as you create Pens)
-const CODEPEN_MAP = {}; // e.g., {'1_weather-app': 'https://codepen.io/ajy-ocean/full/abc123'};
+const CODEPEN_MAP = {
+    '1_weather-app': 'https://codepen.io/ajy_ocean/full/ZYWVgYy'
+}; // e.g., {'1_weather-app': 'https://codepen.io/ajy-ocean/full/abc123'};
 
 async function fetchProjects() {
     try {
