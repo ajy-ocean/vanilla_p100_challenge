@@ -104,10 +104,10 @@ const CODEPEN_MAP = {
     "94_video_preloader": "https://codepen.io/ajy_ocean/full/MYyLvGO",
     "95_scroll": "https://codepen.io/ajy_ocean/full/vEGbJjo",
     "96_tabs": "https://codepen.io/ajy_ocean/full/XJdOaYq",
-    "97_countdown_timer": "https://codepen.io/ajy_ocean/full/zxqeZdW",
-    "98_lorem-ipsum": "https://codepen.io/ajy_ocean/full/zxqeZdW",
-    "99_grocery-bud": "https://codepen.io/ajy_ocean/full/zxqeZdW",
-    "100_slider": "https://codepen.io/ajy_ocean/full/zxqeZdW",
+    "97_countdown_timer": "https://codepen.io/ajy_ocean/full/gbrqxda",
+    "98_lorem-ipsum": "https://codepen.io/ajy_ocean/full/raePzqv",
+    "99_grocery-bud": "https://codepen.io/ajy_ocean/full/myPvMQy",
+    "100_slider": "https://codepen.io/ajy_ocean/full/MYyLvzr",
 };
 
 async function fetchProjects() {
