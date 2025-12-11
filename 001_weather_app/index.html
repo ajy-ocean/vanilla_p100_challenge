@@ -12,25 +12,25 @@
     <div class="card">
         <div class="search">
             <input type="text" placeholder="Enter City" spellcheck="false">
-            <button><img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/search.png" alt="search-icon"></button>
+            <button><img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/search.png" alt="search-icon"></button>
         </div>
         <div class="error">
             <p>Invalid city name</p>
         </div>
         <div class="weather">
-            <img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/rain.png" alt="rain-icon" class="weather-icon">
+            <img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/rain.png" alt="rain-icon" class="weather-icon">
             <h1 class="temp">22℃</h1>
             <h2 class="city">Dehradun</h2>
             <div class="details">
                 <div class="col">
-                    <img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/humidity.png" alt="humidity-icon">
+                    <img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/humidity.png" alt="humidity-icon">
                     <div>
                         <div class="humidity">50%</div>
                         <p>Humidity</p>
                     </div>
                 </div>
                 <div class="col">
-                    <img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/wind.png" alt="wind-icon">
+                    <img src="https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/wind.png" alt="wind-icon">
                     <div>
                         <div class="wind">15 km/h</div>
                         <p>Wind Speed</p>
@@ -61,19 +61,19 @@
                 document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
                 if (data.weather[0].main == "Clouds") {
-                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/clouds.png";
+                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/clouds.png";
                 }
                 else if (data.weather[0].main == "Clear") {
-                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/clear.png";
+                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/clear.png";
                 }
                 else if (data.weather[0].main == "Rain") {
-                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/rain.png";
+                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/rain.png";
                 }
                 else if (data.weather[0].main == "Drizzle") {
-                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/drizzle.png";
+                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/drizzle.png";
                 }
                 else if (data.weather[0].main == "Mist") {
-                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather-app/images/mist.png";
+                    weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/mist.png";
                 }
                 document.querySelector(".weather").style.display = "block";
                 document.querySelector(".error").style.display = "none";
