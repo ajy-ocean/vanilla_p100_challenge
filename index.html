@@ -2,26 +2,260 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>100 Vanilla JS Projects</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS 100 Projects Challenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #1b1b1b;
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+            color: #f0d96a;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        header p {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .search-wrapper {
+            max-width: 400px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #333;
+            background: #242424;
+            color: #e6e6e6;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        #searchInput:focus {
+            border-color: #f0d96a;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: #232323;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            transition: 0.25s ease;
+            border: 1px solid #2e2e2e;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            border-color: #3a3a3a;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background-color: #2b2b2b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 0.875rem;
+        }
+
+        .card-content {
+            padding: 1.3rem 1.5rem 1.5rem 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fefefe;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #1b1b1b !important;
+            text-align: center;
+            border: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: 0.2s ease;
+        }
+
+        .btn-preview {
+            background: #f0d96a;
+        }
+
+        .btn-preview:hover {
+            background: #e5c856;
+        }
+
+        .btn-source {
+            background: #6fcf97;
+        }
+
+        .btn-source:hover {
+            background: #5bbd83;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
     <header>
-        <h1>100 JS Projects</h1>
-        <p>Minimal • Clean • Vanilla</p>
+        <h1>Vanilla JS 100 Projects Challenge</h1>
+        <p>Mastering core web development with HTML5, CSS3, and Vanilla JavaScript</p>
     </header>
 
-    <main>
-        <input type="text" id="search" placeholder="Search 100 projects..." />
-        <div id="loading">Loading...</div>
-        <div id="projects" class="grid"></div>
-    </main>
+    <div class="container">
 
-    <script src="script.js"></script>
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="Search projects...">
+        </div>
+
+        <div class="grid" id="projects-grid">
+            <div class="card">
+                <div class="project-image">Loading projects...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const repoOwner = "ajy-ocean";
+        const repoName = "vanilla_p100_challenge";
+        const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents`;
+
+function formatTitle(project) {
+    return project
+        .replace(/^\d+_?/, "")       
+        .replace(/_/g, " ")         
+        .replace(/\b\w/g, l => l.toUpperCase()); 
+}
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch(apiUrl);
+                if (!res.ok) throw new Error('Failed to fetch');
+                const data = await res.json();
+
+                let projects = data
+                    .filter(item => item.type === 'dir')
+                    .map(item => item.name)
+                    .filter(name => /^\d+_.+/.test(name));
+
+                projects.sort((a, b) => {
+                    const numA = parseInt(a.match(/^(\d+)/)?.[1] || 0);
+                    const numB = parseInt(b.match(/^(\d+)/)?.[1] || 0);
+                    return numA - numB;
+                });
+
+                const grid = document.getElementById('projects-grid');
+                grid.innerHTML = '';
+
+                if (projects.length === 0) {
+                    grid.innerHTML = '<p>No projects found.</p>';
+                    return;
+                }
+
+                projects.forEach(project => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    card.innerHTML = `
+                        <div class="project-image">Image Placeholder</div>
+                        <div class="card-content">
+                            <h3>${formatTitle(project)}</h3>
+                            <div class="buttons">
+                                <a href="${project}/" class="btn btn-preview" target="_blank">
+                                    <i class="fa fa-link"></i> Preview
+                                </a>
+                                <a href="https://github.com/${repoOwner}/${repoName}/tree/master/${project}" 
+                                    class="btn btn-source" target="_blank">
+                                    <i class="fab fa-github"></i> Source
+                                </a>
+                            </div>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+            } catch (err) {
+                console.error('Failed to fetch projects:', err);
+                document.getElementById('projects-grid').innerHTML =
+                    '<p>Failed to load projects.</p>';
+            }
+        });
+
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const value = this.value.toLowerCase();
+            const cards = document.querySelectorAll(".card");
+
+            cards.forEach(card => {
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                card.style.display = title.includes(value) ? "block" : "none";
+            });
+        });
+    </script>
+
 </body>
 
 </html>
