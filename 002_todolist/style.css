@@ -78,7 +78,7 @@ ul li::before {
     height: 25px;
     width: 25px;
     border-radius: 50px;
-    background-image: url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/2_todolist/images/unchecked.png');
+    background-image: url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/002_todolist/images/unchecked.png');
     background-size: cover;
     background-position: center;
     top: 11px;
@@ -91,7 +91,7 @@ ul li.checked {
 }
 
 ul li.checked::before {
-    background-image: url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/2_todolist/images/checked.png');
+    background-image: url('https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/002_todolist/images/checked.png');
 }
 
 ul li span {

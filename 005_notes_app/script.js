@@ -16,7 +16,7 @@ createBtn.addEventListener("click", () => {
     let img = document.createElement("img");
     inputBox.className = "input-box";
     inputBox.setAttribute("contenteditable", "true")
-    img.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/5_notes_app/images/delete.png";
+    img.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/005_notes_app/images/delete.png";
     notesContainer.appendChild(inputBox).appendChild(img);
 })
 

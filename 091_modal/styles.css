@@ -183,7 +183,7 @@ Modal
 */
 .hero {
   min-height: 100vh;
-  background: url("https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/91_modal/hero.jpeg") center/cover no-repeat;
+  background: url("https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/091_modal/hero.jpeg") center/cover no-repeat;
   display: grid;
   place-items: center;
 }
