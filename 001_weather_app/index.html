@@ -60,19 +60,19 @@
                 document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
                 document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
-                if (data.weather[0].main == "Clouds") {
+                if (data.weather[0].master == "Clouds") {
                     weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/clouds.png";
                 }
-                else if (data.weather[0].main == "Clear") {
+                else if (data.weather[0].master == "Clear") {
                     weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/clear.png";
                 }
-                else if (data.weather[0].main == "Rain") {
+                else if (data.weather[0].master == "Rain") {
                     weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/rain.png";
                 }
-                else if (data.weather[0].main == "Drizzle") {
+                else if (data.weather[0].master == "Drizzle") {
                     weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/drizzle.png";
                 }
-                else if (data.weather[0].main == "Mist") {
+                else if (data.weather[0].master == "Mist") {
                     weatherIcon.src = "https://raw.githubusercontent.com/ajy-ocean/vanilla_p100_challenge/master/001_weather_app/images/mist.png";
                 }
                 document.querySelector(".weather").style.display = "block";
