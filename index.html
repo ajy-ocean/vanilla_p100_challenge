@@ -182,13 +182,12 @@
         const repoName = "vanilla_p100_challenge";
         const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents`;
 
-function formatTitle(project) {
-    return project
-        .replace(/^\d+_?/, "")       
-        .replace(/_/g, " ")         
-        .replace(/\b\w/g, l => l.toUpperCase()); 
-}
-
+        function formatTitle(project) {
+            return project
+                .replace(/^\d+_?/, "")
+                .replace(/_/g, " ")
+                .replace(/\b\w/g, l => l.toUpperCase());
+        }
 
         document.addEventListener('DOMContentLoaded', async () => {
             try {
@@ -199,7 +198,8 @@ function formatTitle(project) {
                 let projects = data
                     .filter(item => item.type === 'dir')
                     .map(item => item.name)
-                    .filter(name => /^\d+_.+/.test(name));
+                    .filter(name => /^\d+_.+/.test(name))      // only numbered folders
+                    .filter(name => name !== "000_site_image"); // exclude image folder
 
                 projects.sort((a, b) => {
                     const numA = parseInt(a.match(/^(\d+)/)?.[1] || 0);
@@ -215,28 +215,42 @@ function formatTitle(project) {
                     return;
                 }
 
-                projects.forEach(project => {
+                for (const project of projects) {
+
+                    // Image path in 000_site_image folder
+                    const imgUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/master/000_site_image/${project}.png`;
+
+                    // Check if image exists
+                    let validImg = imgUrl;
+                    const check = await fetch(imgUrl);
+
+                    if (!check.ok) {
+                        validImg = "https://via.placeholder.com/300x180?text=No+Image";
+                    }
+
                     const card = document.createElement('div');
                     card.className = 'card';
 
                     card.innerHTML = `
-                        <div class="project-image">Image Placeholder</div>
-                        <div class="card-content">
-                            <h3>${formatTitle(project)}</h3>
-                            <div class="buttons">
-                                <a href="${project}/" class="btn btn-preview" target="_blank">
-                                    <i class="fa fa-link"></i> Preview
-                                </a>
-                                <a href="https://github.com/${repoOwner}/${repoName}/tree/master/${project}" 
-                                    class="btn btn-source" target="_blank">
-                                    <i class="fab fa-github"></i> Source
-                                </a>
-                            </div>
+                    <div class="project-image">
+                        <img src="${validImg}" alt="${project}" style="width:100%; height:180px; object-fit:cover;">
+                    </div>
+                    <div class="card-content">
+                        <h3>${formatTitle(project)}</h3>
+                        <div class="buttons">
+                            <a href="${project}/" class="btn btn-preview" target="_blank">
+                                <i class="fa fa-link"></i> Preview
+                            </a>
+                            <a href="https://github.com/${repoOwner}/${repoName}/tree/master/${project}"
+                                class="btn btn-source" target="_blank">
+                                <i class="fab fa-github"></i> Source
+                            </a>
                         </div>
-                    `;
+                    </div>
+                `;
 
                     grid.appendChild(card);
-                });
+                }
 
             } catch (err) {
                 console.error('Failed to fetch projects:', err);
@@ -255,6 +269,7 @@ function formatTitle(project) {
             });
         });
     </script>
+
 
 </body>
 
